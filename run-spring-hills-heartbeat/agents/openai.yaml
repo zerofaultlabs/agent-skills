@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run Spring Hills Heartbeat"
+  short_description: "Catch up missed Spring Hills production work"
+  default_prompt: "Use $run-spring-hills-heartbeat to reconcile and run any Spring Hills work due since the last successful checkpoint."
