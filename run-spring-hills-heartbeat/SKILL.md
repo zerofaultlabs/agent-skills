@@ -14,6 +14,7 @@ Read the project `AGENTS.md` first. Use:
 - Spring Hills Tracker `1_jvc-LGHrvD68_aYv7PEdMHCuMJZdnua8AMHhOeT54k` as working memory and audit trail.
 - `#sh-agent-log` `C0BJYFN7CBS` for material activity.
 - `#sh-feedback` `C0BJ7HML736` for Nastia's judgment.
+- `#sh-general` `C0BJRTHN5G8` as an additional feedback-intake channel when Nastia discusses Spring Hills work there.
 - `#sh-ideas` `C0BM6VDL4FM` for qualifying inspiration.
 - `work/spring-hills-heartbeat-state.json` in the project as the fast local ledger.
 
@@ -41,7 +42,7 @@ Keep only the newest 500 processed IDs per workflow in the local ledger. The tra
 
 ## Workflow routing
 
-- `feedback`: Read all new reactions and thread replies since the Slack cursor. Channel history orders parent messages, so do not rely on parent timestamps alone: inspect any visible thread whose `latest_reply` is newer than the last verified success, even when its parent is older. Every new Nastia reply must receive the promised follow-through in that same thread, or a brief same-thread acknowledgement that names the remaining action. Follow the existing standalone-message and Quick view rules. Update the tracker without duplicates.
+- `feedback`: Read all new reactions and thread replies in `#sh-feedback` since the Slack cursor. Also inspect new Spring Hills-related messages from Nastia in `#sh-general`; treat them as feedback intake and acknowledge or continue them in a thread under her message. Channel history orders parent messages, so do not rely on parent timestamps alone: inspect any visible thread whose `latest_reply` is newer than the last verified success, even when its parent is older. Every new Nastia reply must receive the promised follow-through in that same thread, or a brief same-thread acknowledgement that names the remaining action. Follow the existing standalone-message and Quick view rules. Update the tracker without duplicates.
 - `sermon`: Find every unprocessed official Sunday sermon in the due window that remains useful for the current content cycle. Run `youtube-sermon-transcript`, then `create-spring-hills-sermon-content` with `write-spring-hills-social`. Do not recreate a package already identified by YouTube ID. Use the sermon skill's one-screen Quick view for Nastia; keep the full brief as an artifact.
 - `inspiration`: Scan from the last verified boundary through now. Run `scout-spring-hills-content-ideas`; preserve its evidence thresholds, use its Nastia Quick view, and allow zero findings.
 

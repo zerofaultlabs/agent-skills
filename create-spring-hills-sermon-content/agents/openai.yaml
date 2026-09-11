@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Spring Hills Sermon Content"
+  short_description: "Turn sermons into on-brand social content"
+  default_prompt: "Use $create-spring-hills-sermon-content to turn this Spring Hills sermon transcript into a weekly social content package."
