@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Spring Hills Caption"
+  short_description: "Draft captions from photos or a short brief"
+  default_prompt: "Use $create-spring-hills-caption to write a ready-to-use Spring Hills caption from these photos or details."

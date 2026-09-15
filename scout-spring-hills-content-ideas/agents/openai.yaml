@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spring Hills Trend & Idea Scout"
+  short_description: "Find timely ideas that fit Spring Hills"
+  default_prompt: "Use $scout-spring-hills-content-ideas to find a few timely social content ideas for Spring Hills Church."
