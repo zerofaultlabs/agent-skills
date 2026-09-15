@@ -13,6 +13,11 @@ venv/
 credentials.json
 secrets.*
 
+# Local production state and private evaluation material
+/work/
+/private-feedback/
+/evaluation-private/
+
 # Generated sermon-transcript working files and deliverables
 *.vtt
 *.segments.json
@@ -27,4 +32,3 @@ secrets.*
 .vscode/
 *.swp
 *~
-

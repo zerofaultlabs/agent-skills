@@ -16,6 +16,7 @@ Produce faithful, readable sermon transcript files with original-video timestamp
 5. Proofread the entire selected sermon semantically. Correct obvious ASR spelling, clipped words, duplicated caption fragments, biblical names, Scripture references, and punctuation without changing the speaker's meaning.
 6. Determine the service date and write `YYYY-MM-DD.sermon.txt`, `YYYY-MM-DD.sermon.md`, and `YYYY-MM-DD.boundaries.json` beside the prepared files unless the user requests another location. Both transcript files must contain original-video timestamps throughout.
 7. Read the final outputs from beginning to end and verify spelling, boundary timestamps, chapter order, and transcript fidelity.
+8. If an authorized extension of this workflow downloaded or generated a temporary `.wav` file, delete that specific file only after all three final files have been written and validated successfully. Never delete user-supplied audio. Retain workflow-generated audio when transcription or validation fails so work can resume.
 
 Run:
 
@@ -23,7 +24,7 @@ Run:
 python3 scripts/prepare_transcript.py "YOUTUBE_URL_OR_VTT" --output-dir OUTPUT_DIRECTORY
 ```
 
-The script requires `yt-dlp` only for YouTube URLs. Local VTT processing uses the Python standard library.
+The script requires `yt-dlp` only for YouTube URLs. Local VTT processing uses the Python standard library. The script prepares captions; it does not download audio or implement audio transcription. The conditional audio-cleanup rule above does not add an audio fallback.
 
 ## Expected Service Structure
 
@@ -134,3 +135,4 @@ Before delivery, verify:
 - No obvious clipped words, caption-overlap repetitions, misspelled biblical names, or malformed Scripture quotations remain.
 - A final whole-document proofreading pass was completed after chapter organization, not only on the raw captions.
 - The organized transcript contains no invented wording.
+- If temporary workflow-generated `.wav` audio was used, it was deleted only after successful validation; user-supplied audio was preserved.

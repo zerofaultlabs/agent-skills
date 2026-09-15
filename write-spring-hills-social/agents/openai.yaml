@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Spring Hills Social"
+  short_description: "Write in the Spring Hills social voice"
+  default_prompt: "Use $write-spring-hills-social to draft a Spring Hills Church social media caption."
