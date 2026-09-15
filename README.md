@@ -25,11 +25,11 @@ Use a reviewed Git revision of this repository. Copy each selected skill folder 
 
 Before replacing an existing copy, compare its files with the chosen repository revision and preserve any local differences. Resolve intended changes in the repository first. Record the revision installed and verify that copied files match it. A developer may instead link a skill folder to a dedicated checkout, understanding that checkout edits become active immediately.
 
-Automated ZIP releases and verified updates are planned in [#8](https://github.com/taylorturner/agent-skills/issues/8) and [#9](https://github.com/taylorturner/agent-skills/issues/9). No releases were listed during the issue #1 inventory. Until that work lands, installation and update verification are manual; do not assume a suite ZIP or updater exists.
+Automated ZIP releases and verified updates are planned in [#8](https://github.com/zerofaultlabs/agent-skills/issues/8) and [#9](https://github.com/zerofaultlabs/agent-skills/issues/9). No releases were listed during the issue #1 inventory. Until that work lands, installation and update verification are manual; do not assume a suite ZIP or updater exists.
 
 ## Development and validation
 
-Read [AGENTS.md](AGENTS.md) before editing. Track work in [GitHub issues](https://github.com/taylorturner/agent-skills/issues); [#10](https://github.com/taylorturner/agent-skills/issues/10) records the review and implementation sequence.
+Read [AGENTS.md](AGENTS.md) before editing. Track work in [GitHub issues](https://github.com/zerofaultlabs/agent-skills/issues); [#10](https://github.com/zerofaultlabs/agent-skills/issues/10) records the review and implementation sequence.
 
 For a skill change, read its instructions and affected references, check local reference paths and companion dependencies, and inspect the final diff. When the skill-creator validator is available, run its `scripts/quick_validate.py` against each changed skill. This checks structure, not editorial quality.
 
@@ -40,7 +40,7 @@ python3 -B run-spring-hills-heartbeat/scripts/test_heartbeat_state.py
 git diff --check
 ```
 
-The existing suite contains four heartbeat tests. Transcript regressions, final artifact validation, editorial evaluations, and CI are tracked in [#2](https://github.com/taylorturner/agent-skills/issues/2), [#4](https://github.com/taylorturner/agent-skills/issues/4), [#5](https://github.com/taylorturner/agent-skills/issues/5), and [#7](https://github.com/taylorturner/agent-skills/issues/7). Use each content skill's validation protocol for semantic review; passing structural checks does not establish transcript fidelity or editorial quality.
+The existing suite contains four heartbeat tests. Transcript regressions, final artifact validation, editorial evaluations, and CI are tracked in [#2](https://github.com/zerofaultlabs/agent-skills/issues/2), [#4](https://github.com/zerofaultlabs/agent-skills/issues/4), [#5](https://github.com/zerofaultlabs/agent-skills/issues/5), and [#7](https://github.com/zerofaultlabs/agent-skills/issues/7). Use each content skill's validation protocol for semantic review; passing structural checks does not establish transcript fidelity or editorial quality.
 
 ## Production project and working memory
 
@@ -60,7 +60,7 @@ Existing tracker/channel identifiers and cadence remain in the [heartbeat skill]
 
 ## Canonicalization record
 
-Issue [#1](https://github.com/taylorturner/agent-skills/issues/1), September 15, 2026:
+Issue [#1](https://github.com/zerofaultlabs/agent-skills/issues/1), September 15, 2026:
 
 - Imported the installed voice, caption, and inspiration skills and supporting files as migration inputs. Future edits originate here.
 - Preserved caption and inspiration content, normalizing trailing blank lines in two caption references. In the voice examples, replaced one dated historical comparison with its transferable selection rule so the production skill does not contain that case's answer.
