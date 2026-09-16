@@ -10,7 +10,7 @@ Produce faithful, readable sermon transcript files with original-video timestamp
 ## Workflow
 
 1. Run `scripts/prepare_transcript.py` on a YouTube URL or local `.vtt` file.
-2. Read the generated `.segments.json` and `.cleaned.md` files. For YouTube sources, use the metadata stored in `.segments.json`, including the release/livestream date and description.
+2. Retain the generated `.raw.vtt` evidence beside `.segments.json` and `.cleaned.md`. Read the JSON and Markdown files. For YouTube sources, use the metadata stored in `.segments.json`, including the release/livestream date and description.
 3. Identify the sermon boundaries using the service structure and evidence rules below.
 4. Organize only the sermon into logical paragraphs and chapters.
 5. Proofread the entire selected sermon semantically. Correct obvious ASR spelling, clipped words, duplicated caption fragments, biblical names, Scripture references, and punctuation without changing the speaker's meaning.
@@ -25,6 +25,16 @@ python3 scripts/prepare_transcript.py "YOUTUBE_URL_OR_VTT" --output-dir OUTPUT_D
 ```
 
 The script requires `yt-dlp` only for YouTube URLs. Local VTT processing uses the Python standard library. The script prepares captions; it does not download audio or implement audio transcription. The conditional audio-cleanup rule above does not add an audio fallback.
+
+## Prepared evidence and acquisition
+
+The helper accepts local VTT and HTTP(S) YouTube watch, youtu.be, live, and shorts URLs with an exact supported hostname and an 11-character video ID. It selects English VTT tracks deterministically: manual before automatic; within each kind, `en`, then `en-orig`, then other `en-*` tracks in lexical order. Missing tools, unavailable tracks, failed downloads, and empty captions fail explicitly. Use a fresh output directory when repeating a preparation; existing artifacts are not overwritten.
+
+The raw VTT is retained byte-for-byte. Schema version 2 JSON records its SHA-256, source identifier, selected caption kind/language/format, acquisition tool version and arguments for YouTube, preparation time, helper hash, cleanup version, and paragraph setting. Selected video metadata includes title, description, release/upload date candidates, and which date supplied the candidate. A candidate is evidence to evaluate, not a confirmed service date.
+
+`cues` lists nonempty parsed cues in source order with one-based IDs, cleaned lines, and integer `start_ms`/`end_ms`. Segment `source_cue_ids` refer to these records; overlap fields identify the preceding cue and removed prefix length. The retained VTT preserves original cue identifiers, markup, and text. Seconds fields retain fractions and prepared display timestamps use `HH:MM:SS.mmm`; keep original-video time throughout. Final readable timestamps may use whole seconds, but preserve precise boundaries in JSON and floor seconds for YouTube links.
+
+Cleanup compares only adjacent cues with overlapping display times and at least two matching whole words, ignoring case and punctuation for matching. It preserves single-word repeats, nonoverlapping utterances, and repetition within a cue. Display timing alone cannot prove that a repeated phrase was not spoken again: inspect raw evidence when overlap is ambiguous. Sequential rolling captions whose times do not overlap remain for semantic review rather than risking text loss.
 
 ## Expected Service Structure
 

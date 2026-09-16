@@ -36,11 +36,12 @@ For a skill change, read its instructions and affected references, check local r
 Run the current executable tests from the repository root:
 
 ```bash
+python3 -B tests/test_prepare_transcript.py
 python3 -B run-spring-hills-heartbeat/scripts/test_heartbeat_state.py
 git diff --check
 ```
 
-The existing suite contains four heartbeat tests. Transcript regressions, final artifact validation, editorial evaluations, and CI are tracked in [#2](https://github.com/zerofaultlabs/agent-skills/issues/2), [#4](https://github.com/zerofaultlabs/agent-skills/issues/4), [#5](https://github.com/zerofaultlabs/agent-skills/issues/5), and [#7](https://github.com/zerofaultlabs/agent-skills/issues/7). Use each content skill's validation protocol for semantic review; passing structural checks does not establish transcript fidelity or editorial quality.
+The suites include offline transcript regressions with synthetic VTT fixtures and four heartbeat tests. Final artifact validation, editorial evaluations, and CI are tracked in [#4](https://github.com/zerofaultlabs/agent-skills/issues/4), [#5](https://github.com/zerofaultlabs/agent-skills/issues/5), and [#7](https://github.com/zerofaultlabs/agent-skills/issues/7). Use each content skill's validation protocol for semantic review; passing structural checks does not establish transcript fidelity or editorial quality.
 
 ## Production project and working memory
 
