@@ -32,3 +32,6 @@ secrets.*
 .vscode/
 *.swp
 *~
+
+# Authored offline regression evidence only
+!tests/fixtures/transcripts/*.vtt
